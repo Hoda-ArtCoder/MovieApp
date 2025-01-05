@@ -1,0 +1,13 @@
+.isActive {
+    color: #1db125;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.isPending {
+    color: #661111;
+    text-decoration: none;
+}
+.nav{
+margin-bottom: 10px;
+}

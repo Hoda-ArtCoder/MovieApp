@@ -1,0 +1,14 @@
+:root {
+    --primary-color: #01d277;  /* TMDb Green */
+    --secondary-color: #032541; /* TMDb Dark Blue */
+    --accent-color: #ffffff;    /* White */
+  }
+
+  .movie-search {
+    background-color: var(--primary-color);
+    padding: 20px;
+  }
+
+  .search-text-field {
+    background-color: var(--accent-color);
+  }

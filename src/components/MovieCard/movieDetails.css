@@ -1,0 +1,61 @@
+/* movieDetails.css */
+
+.movie-card {
+    display: flex;
+    border: 3px solid;
+    padding: 30px
+  }
+  
+  .movie-card-media {
+    display: flex;
+    margin-right: 20px;
+  }
+  
+  .movie-card-media img {
+    height: auto;
+    border-radius: 5%;
+  }
+  
+  .movie-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    width: 40%
+  }
+  
+  #movie-title {
+    font-weight: bold;
+    color: #66bb6a; /* success.main color */
+    font-size: 50px;
+  }
+  
+  .movie-release-date {
+    font-weight: medium;
+    color: #619464; /* success.secondary color */
+  }
+  
+  .movie-rating {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .movie-rating .vote-count {
+    font-size: 0.875rem;
+  }
+  
+  .movie-genres {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .movie-overview,
+  .movie-duration,
+  .movie-language {
+    font-size: 0.875rem;
+  }
+  
+  .movie-duration b,
+  .movie-language b {
+    font-weight: bold;
+  }
+  
