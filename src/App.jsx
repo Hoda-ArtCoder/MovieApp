@@ -1,6 +1,8 @@
+// src/App.js
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
+import { useLanguage } from './context/LanguageContext';
 
 // Lazy load components
 const MovieDetails = lazy(() => import("./components/MovieCard/movieDetails"));
@@ -11,6 +13,13 @@ const FavoriteMovies = lazy(() => import("./pages/FavoriteMovies"));
 const RegisterForm = lazy(() => import("./pages/Register"));
 
 export default function App() {
+  const { language, direction } = useLanguage();
+
+  useEffect(() => {
+    // Set the document direction based on the language
+    document.documentElement.dir = direction;
+  }, [direction]);
+
   return (
     <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>

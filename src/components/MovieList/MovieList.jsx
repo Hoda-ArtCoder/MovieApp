@@ -10,21 +10,21 @@ import axiosInstance from "../../apis/config";
 import { Box, Grid2, Rating, Container } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router";
+import { useLanguage } from '../../context/LanguageContext'; // Assuming you're using LanguageContext
 
 export default function ListMovies() {
   const [movies, setMovies] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites || []);
-
-
+  const { language } = useLanguage();
 
   useEffect(() => {
-    // Fetch popular movies
+    // Fetch popular movies with dynamic language parameter
     axiosInstance
       .get("movie/popular", {
         params: {
-          language: "en-US",
+          language: language || "en-US", 
           page: 1,
         },
       })
@@ -34,7 +34,7 @@ export default function ListMovies() {
       .catch((err) => {
         console.error("Error fetching movies:", err);
       });
-  }, []);
+  }, [language]); // Trigger re-fetch when language changes
 
   const handleRedirectionToDetails = (id) => {
     navigate(`./movie-details/${id}`);

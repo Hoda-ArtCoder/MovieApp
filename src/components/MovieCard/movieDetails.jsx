@@ -15,17 +15,18 @@ import {
 import StarIcon from "@mui/icons-material/Star";
 import "./movieDetails.css";
 import ProductionCompanies from "./productionCompanies"
+import { useLanguage } from '../../context/LanguageContext'; // Assuming you're using LanguageContext
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const params = useParams();
-
+  const { language } = useLanguage();
   useEffect(() => {
     axiosInstance
       .get(`/movie/${params.id}`, {
         params: {
           movie_id: params.id,
-          language: "en-US",
+          language: language || "en-US", 
         },
       })
       .then((res) => {
